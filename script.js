@@ -1,6 +1,6 @@
 // script.js
 // Handles interactions with the backend API for uploading documents and asking questions.
-
+const BACKEND_URL = 'https://my-rag-api.onrender.com';
 document.addEventListener('DOMContentLoaded', () => {
     const uploadForm = document.getElementById('upload-form');
     const fileInput = document.getElementById('file-input');
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('files', file);
         }
         try {
-            const response = await fetch('/upload', {
+            const response = await fetch(`${BACKEND_URL}/upload`, {
                 method: 'POST',
                 body: formData,
             });
@@ -55,7 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
         renderConversation(answerArea, conversation);
         queryInput.value = '';
         try {
-            const response = await fetch('/query', {
+
+            
+            const response = await fetch(`${BACKEND_URL}/query`,{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ query }),
