@@ -1,6 +1,7 @@
 // script.js
 // Handles interactions with the backend API for uploading documents and asking questions.
-const BACKEND_URL = 'https://my-rag-api.onrender.com';
+const BACKEND_URL = 'https://agenticbackend-d.onrender.com/';
+
 document.addEventListener('DOMContentLoaded', () => {
     const uploadForm = document.getElementById('upload-form');
     const fileInput = document.getElementById('file-input');
